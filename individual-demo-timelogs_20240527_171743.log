@@ -1,0 +1,51 @@
+2024-05-27 17:18:49,695 - Connected (version 2.0, client OpenSSH_8.9p1)
+2024-05-27 17:18:49,834 - Authentication (publickey) successful!
+2024-05-27 17:18:50,273 - [chan 0] Opened sftp connection (server version 3)
+2024-05-27 17:18:50,359 - [chan 0] sftp session closed.
+2024-05-27 17:18:50 - Match Insertion - Duration: 0.71 seconds, Records Inserted: 1
+2024-05-27 17:18:50,875 - Connected (version 2.0, client OpenSSH_8.9p1)
+2024-05-27 17:18:51,007 - Authentication (publickey) successful!
+2024-05-27 17:18:51,157 - [chan 0] Opened sftp connection (server version 3)
+2024-05-27 17:18:51,409 - [chan 0] sftp session closed.
+2024-05-27 17:18:51 - Rounds Insertion - Duration: 0.57 seconds, Records Inserted: 27
+2024-05-27 17:18:51,572 - Connected (version 2.0, client OpenSSH_8.9p1)
+2024-05-27 17:18:51,715 - Authentication (publickey) successful!
+2024-05-27 17:18:51,877 - [chan 0] Opened sftp connection (server version 3)
+2024-05-27 17:18:53,133 - [chan 0] sftp session closed.
+2024-05-27 17:18:53 - Kills Insertion - Duration: 1.61 seconds, Records Inserted: 167
+2024-05-27 17:18:53,195 - Connected (version 2.0, client OpenSSH_8.9p1)
+2024-05-27 17:18:53,331 - Authentication (publickey) successful!
+2024-05-27 17:18:53,477 - [chan 0] Opened sftp connection (server version 3)
+2024-05-27 17:18:58,722 - [chan 0] sftp session closed.
+2024-05-27 17:18:58 - Damages Insertion - Duration: 5.58 seconds, Records Inserted: 778
+2024-05-27 17:18:58,808 - Connected (version 2.0, client OpenSSH_8.9p1)
+2024-05-27 17:18:58,940 - Authentication (publickey) successful!
+2024-05-27 17:18:59,082 - [chan 0] Opened sftp connection (server version 3)
+2024-05-27 17:19:03,248 - [chan 0] sftp session closed.
+2024-05-27 17:19:03 - Grenades Insertion - Duration: 4.48 seconds, Records Inserted: 649
+2024-05-27 17:19:03,312 - Connected (version 2.0, client OpenSSH_8.9p1)
+2024-05-27 17:19:03,446 - Authentication (publickey) successful!
+2024-05-27 17:19:03,599 - [chan 0] Opened sftp connection (server version 3)
+2024-05-27 17:19:06,127 - [chan 0] sftp session closed.
+2024-05-27 17:19:06 - Flashes Insertion - Duration: 2.86 seconds, Records Inserted: 371
+2024-05-27 17:19:06,198 - Connected (version 2.0, client OpenSSH_8.9p1)
+2024-05-27 17:19:06,332 - Authentication (publickey) successful!
+2024-05-27 17:19:06,490 - [chan 0] Opened sftp connection (server version 3)
+2024-05-27 17:19:34,549 - [chan 0] sftp session closed.
+2024-05-27 17:19:34 - Weapon Fires Insertion - Duration: 28.42 seconds, Records Inserted: 4438
+2024-05-27 17:19:34,596 - Connected (version 2.0, client OpenSSH_8.9p1)
+2024-05-27 17:19:34,736 - Authentication (publickey) successful!
+2024-05-27 17:19:34,887 - [chan 0] Opened sftp connection (server version 3)
+2024-05-27 17:19:35,230 - [chan 0] sftp session closed.
+2024-05-27 17:19:35 - Bomb Events Insertion - Duration: 0.68 seconds, Records Inserted: 42
+2024-05-27 17:19:35,342 - Connected (version 2.0, client OpenSSH_8.9p1)
+2024-05-27 17:19:35,473 - Authentication (publickey) successful!
+2024-05-27 17:19:35,621 - [chan 0] Opened sftp connection (server version 3)
+2024-05-27 17:19:49,069 - [chan 0] sftp session closed.
+2024-05-27 17:19:49 - Frames Insertion - Duration: 13.77 seconds, Records Inserted: 2279
+2024-05-27 17:19:49,411 - Connected (version 2.0, client OpenSSH_8.9p1)
+2024-05-27 17:19:49,545 - Authentication (publickey) successful!
+2024-05-27 17:19:49,688 - [chan 0] Opened sftp connection (server version 3)
+2024-05-27 17:22:30,264 - [chan 0] sftp session closed.
+2024-05-27 17:22:30 - Player Frames Insertion - Duration: 161.18 seconds, Records Inserted: 22790
+2024-05-27 17:22:30,329 - Overall Insertion Time: 287.05 seconds
