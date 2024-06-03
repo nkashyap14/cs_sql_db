@@ -1,7 +1,7 @@
 import time
 import logging
 from datetime import datetime
-from parsing import parse_demo_files
+from parsing import parse_demo_files_in_batches
 from populate_functions import (
     populate_match, populate_rounds, populate_bomb_events,
     populate_frames, populate_player_frames, populate_kills,
@@ -18,6 +18,7 @@ from sql_commands import (
 from config import log_file_path
 from log_utils import log_timing_and_count
 from utility_functions import get_deep_size, batch_insert, clean_parsed_data
+import sys
 
 # Set up logging
 logging.basicConfig(filename=log_file_path, level=logging.INFO, format='%(asctime)s - %(message)s')
@@ -28,29 +29,59 @@ def main():
     # Example usage
     directory_path = 'D:\\CS_DEMOS'
     start_time = time.time()
-    parsed_data_list = parse_demo_files(directory_path, parse_first_only=True)
+    parsed_data_list = parse_demo_files_in_batches(directory_path, 12, 100)
+    #parsed_data_list = parse_demo_files(directory_path, parse_first_only=True)
     end_time = time.time()
     duration = end_time - start_time
     print(f"Parsed {len(parsed_data_list)} demo files in {duration:.2f} seconds.")
-    parsed_datas = parsed_data_list[0]
+    parsed_datas = []
 
-    parsed_data = clean_parsed_data(parsed_datas)
-
-    # Timing for populating lists
     start_time = time.time()
-    match = populate_match(parsed_data)
-    rounds_list = populate_rounds(parsed_data)
-    bombs_list = populate_bomb_events(parsed_data)
-    frames_list = populate_frames(parsed_data, parsed_data['matchID'])
-    player_frames_list = populate_player_frames(parsed_data)
-    kills_list = populate_kills(parsed_data)
-    damages_list = populate_damages(parsed_data)
-    grenades_list = populate_grenades(parsed_data)
-    weapon_fires_list = populate_weapon_fires(parsed_data)
-    flashes_list = populate_flashes(parsed_data)
+    for i, n in enumerate(parsed_data_list):
+        print("i = {}".format(i))
+        print("keys are {}".format(list(parsed_data_list[i].keys())))
+        parsed_data_list[i] = clean_parsed_data(parsed_data_list[i])
+        parsed_datas.append({})
+        parsed_datas[i]['matchID'] = populate_match(parsed_data_list[i])
+        parsed_datas[i]['rounds'] = populate_rounds(parsed_data_list[i])
+        parsed_datas[i]['bombEvents'] = populate_bomb_events(parsed_data_list[i])
+        parsed_datas[i]['frames'] = populate_frames(parsed_data_list[i], parsed_data_list[i]['matchID'])
+        parsed_datas[i]['playerFrames'] = populate_player_frames(parsed_data_list[i])
+        parsed_datas[i]['kills'] = populate_kills(parsed_data_list[i])
+        parsed_datas[i]['damages'] = populate_damages(parsed_data_list[i])
+        parsed_datas[i]['grenades'] = populate_grenades(parsed_data_list[i])
+        parsed_datas[i]['weaponFires'] = populate_weapon_fires(parsed_data_list[i])
+        parsed_datas[i]['flashes'] = populate_flashes(parsed_data_list[i])
+
+        # rounds_list = populate_rounds(parsed_data_list[i])
+        # bombs_list = populate_bomb_events(parsed_data_list[i])
+        # frames_list = populate_frames(parsed_data_list[i], parsed_data_list[i]['matchID'])
+        # player_frames_list = populate_player_frames(parsed_data_list[i])
+        # kills_list = populate_kills(parsed_data_list[i])
+        # damages_list = populate_damages(parsed_data_list[i])
+        # grenades_list = populate_grenades(parsed_data_list[i])
+        # weapon_fires_list = populate_weapon_fires(parsed_data_list[i])
+        # flashes_list = populate_flashes(parsed_data_list[i])
+    # parsed_data = clean_parsed_data(parsed_datas)
+
+    print(len(parsed_datas))
+    print(type(parsed_datas[0]))
+
+    # # Timing for populating lists
+    # match = populate_match(parsed_data)
+    # rounds_list = populate_rounds(parsed_data)
+    # bombs_list = populate_bomb_events(parsed_data)
+    # frames_list = populate_frames(parsed_data, parsed_data['matchID'])
+    # player_frames_list = populate_player_frames(parsed_data)
+    # kills_list = populate_kills(parsed_data)
+    # damages_list = populate_damages(parsed_data)
+    # grenades_list = populate_grenades(parsed_data)
+    # weapon_fires_list = populate_weapon_fires(parsed_data)
+    # flashes_list = populate_flashes(parsed_data)
     end_time = time.time()
     populate_duration = end_time - start_time
-    print(f"Populated all lists in {populate_duration:.2f} seconds.")
+    print(f"Cleaned + Populated all lists in {populate_duration:.2f} seconds.")
+    sys.exit(1)
 
     # Timing for calculating deep sizes
     start_time = time.time()
